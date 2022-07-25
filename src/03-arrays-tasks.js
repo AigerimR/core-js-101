@@ -587,12 +587,7 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(/* arr, indexes */) {
-  // throw new Error('Not implemented');
-  indexes.map((ind)=> 
-  arr.filter((el, i) => {
-    ( i === ind);
-  })
-  )
+  throw new Error('Not implemented');
 }
 
 
