@@ -27,8 +27,12 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(num) {
+  // throw new Error('Not implemented');
+  if (num % 5 === 0 && num % 3 === 0) return 'FizzBuzz';
+  if (num % 5 === 0) return 'Buzz';
+  if (num % 3 === 0) return 'Fizz';
+  return num;
 }
 
 
@@ -87,8 +91,9 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isTriangle(a, b, c) {
+  // throw new Error('Not implemented');
+  return (a + b > c && a + c > b && c + b > a);
 }
 
 
@@ -124,8 +129,14 @@ function isTriangle(/* a, b, c */) {
  *   { top:20, left:20, width: 20, height: 20 }    =>  false
  *
  */
-function doRectanglesOverlap(/* rect1, rect2 */) {
-  throw new Error('Not implemented');
+function doRectanglesOverlap(rect1, rect2) {
+  // throw new Error('Not implemented');
+  if (rect1.left + rect1.width <= rect2.left) return false;
+  if (rect2.left + rect2.width <= rect1.left) return false;
+  if (rect1.top + rect1.height <= rect2.top || rect2.top + rect2.height <= rect1.top) return false;
+  if (rect1.left < rect2.left < rect1.width && rect1.top < rect2.top < rect1.height) return true;
+  if (rect2.left < rect1.left < rect2.width && rect2.top < rect1.top < rect2.height) return true;
+  return false;
 }
 
 
@@ -173,8 +184,10 @@ function isInsideCircle(circle, point) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  // throw new Error('Not implemented');
+  const arr = str.split('');
+  return arr.filter((el, i) => ![...arr.slice(0, i), ...arr.slice(i + 1)].includes(el))[0] || null;
 }
 
 
@@ -200,8 +213,13 @@ function findFirstSingleChar(/* str */) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  // throw new Error('Not implemented');
+  const arr = [];
+  if (isStartIncluded) { arr.push('['); } else { arr.push('('); }
+  if (a < b) { arr.push(`${a}, ${b}`); } else { arr.push(`${b}, ${a}`); }
+  if (isEndIncluded) { arr.push(']'); } else { arr.push(')'); }
+  return arr.join('');
 }
 
 
@@ -390,6 +408,7 @@ function getCommonDirectoryPath(/* pathes */) {
  *                         [ 6 ]]
  *
  */
+// function getMatrixProduct(m1, m2) {
 function getMatrixProduct(/* m1, m2 */) {
   throw new Error('Not implemented');
 }

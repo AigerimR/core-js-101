@@ -192,6 +192,15 @@ function partialUsingArguments(/* fn, ...args1 */) {
  */
 function getIdGeneratorFunction(/* startFrom */) {
   throw new Error('Not implemented');
+  // const cache = {};
+  // if (startFrom in cache) {
+  //   cache[startFrom] += 1;
+  //   return cache[startFrom];
+  // } {
+  //   const result = startFrom;
+  //   cache[startFrom] = result;
+  //   return result;
+  // }
 }
 
 
