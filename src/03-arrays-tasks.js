@@ -364,14 +364,13 @@ function distinct(arr) {
  *    +'20,21,22,23,24\n'
  *    +'30,31,32,33,34'
  */
-function toCsvText(/* arr */) {
-  throw new Error('Not implemented');
-  // let arr2 = arr.map((el)=> '+'+el.toString()+'\n');
-  // for( let i = 0; i<arr.length-1; i++){
-  //   if(i === 0) i.unshift();
-  //   if(i === arr.length-1) i.pop();
-  // }
-  // return arr2;
+function toCsvText(arr) {
+  // throw new Error('Not implemented');
+  const arr2 = arr.map((el) => `${el.toString()}\n`).map((el, i) => {
+    if (i === arr.length - 1) { return el.slice(0, el.length - 1); }
+    return el;
+  });
+  return arr2.reduce((sum, cur) => sum + cur);
 }
 
 /**
@@ -388,16 +387,17 @@ function toCsvText(/* arr */) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  throw new Error('Not implemented');
-  // return arr.map((el, i) => el || (el + arr[i - 1]));
-
-  // const arr2 = [];
-  // for (let i = 0; i < arr.length - 1; i + 1) {
-  //   if (i === 0) arr2.push(arr[i]);
-  //   arr2.push(arr[i] + arr[i - 1]);
-  // }
-  // return arr2;
+function getMovingSum(arr) {
+  // throw new Error('Not implemented');
+  const arr2 = [];
+  return arr.map((el, i) => {
+    if (i === 0) {
+      arr2.push(el); return el;
+    } {
+      const res = (el + arr2.pop());
+      arr2.push(res); return res;
+    }
+  });
 }
 
 /**
@@ -414,9 +414,9 @@ function getMovingSum(/* arr */) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
-  // return arr.map((el, i) => el.repeat(i + 1).split('')).flat();
+function propagateItemsByPositionIndex(arr) {
+  // throw new Error('Not implemented');
+  return arr.map((el, i) => Array(i + 1).fill(el)).flat();
 }
 
 /**
@@ -587,7 +587,12 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(/* arr, indexes */) {
-  throw new Error('Not implemented');
+  // throw new Error('Not implemented');
+  indexes.map((ind)=> 
+  arr.filter((el, i) => {
+    ( i === ind);
+  })
+  )
 }
 
 
